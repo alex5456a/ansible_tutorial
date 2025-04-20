@@ -1,4 +1,3 @@
-# ansible_tutorial
+ansible software installtion
 
-hi
-23.11.24
+20.05.25
