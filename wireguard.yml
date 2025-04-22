@@ -1,0 +1,11 @@
+--- 
+
+- hosts: my_server
+  become: yes
+  tasks:
+  - name: wiregurd
+    apt:
+      name:
+        - wireguard
+      state: latest
+
