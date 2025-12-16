@@ -1,0 +1,11 @@
+---
+- name: variables demo
+  vars:
+    myuser: anna
+  gather_facts: no
+  hosts: ansible2
+  tasks:
+    - name: creation user {{ myuser }}
+      user:
+        name: "{{ myuser }}"
+        shell: /usr/bash
