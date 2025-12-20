@@ -1,0 +1,17 @@
+---
+- name: Zabbix installation
+  hosts: ansible2
+  gather_facts: true
+  tasks:
+    - name: Wget Zabbix deb
+      ansible.builtin.get_url:
+        url: https://repo.zabbix.com/zabbix/7.4/release/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.4+ubuntu24.04_all.deb
+        dest: /tmp/zabbix-release_latest_7.4+ubuntu24.04_all.deb
+        mode: '0700'
+
+    - name: Manually install zabbix.deb 
+      ansible.builtin.command: dpkg -i /tmp/zabbix-release_latest_7.4+ubuntu24.04_all.deb
+      register: dpkg_zabbix_result
+      failed_when: dpkg_zabbix_result.rc not in [0, 1]
+
+

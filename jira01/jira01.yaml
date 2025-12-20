@@ -1,0 +1,15 @@
+---
+- hosts: all
+  become: yes
+  vars_files:
+    - vars.yaml
+
+  pre_tasks:
+    - name: Install postgresql
+      ansible.builtin.apt:
+          name: "{{ item }}"
+          state: present
+      with_items:
+        - postgresql
+        - postgresql-server
+          

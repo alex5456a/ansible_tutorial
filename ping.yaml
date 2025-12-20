@@ -1,6 +1,6 @@
 ---
 - name: ping a host
-  hosts: ansible2
+  hosts: all
   gather_facts: no
   become: no
   tasks:

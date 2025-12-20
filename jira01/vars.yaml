@@ -1,0 +1,4 @@
+---
+db_user: atlas
+db_password: atlaspas
+db_name: jira01
