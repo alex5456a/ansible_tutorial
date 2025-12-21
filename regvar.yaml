@@ -1,0 +1,8 @@
+---
+- name: demo register
+  hosts: ansible2
+  tasks:
+    - command: date
+      register: myday
+    - debug:
+        msg: '{{ myday }}'

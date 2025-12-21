@@ -1,0 +1,26 @@
+---
+- name: set up web server
+  hosts: ansible2
+  gather_facts: false
+  force_handlers: true
+  tasks:
+    - name: install apache2
+      ansible.builtin.apt:
+        name: apache2
+        state: present
+    - name: copy index.html
+      ansible.builtin.copy:
+        src: /tmp/index.html
+        dest: /var/www/html/index.html
+      notify:
+        - restart_web
+    - name: copy nothing - intend to fail
+      ansible.builtin.copy:
+        src: /tmp/nothing.html
+        dest: /var/www/html/nothing.html
+  handlers:
+    - name: restart_web
+      service:
+        name: apache2
+        state: restarted
+

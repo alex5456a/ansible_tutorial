@@ -1,0 +1,7 @@
+---
+- name: showing host variables
+  hosts: localhost
+  tasks:
+    - debug: 
+        msg: this host with the name {{ inventory_hostname }} is using {{ hostvars }}
+

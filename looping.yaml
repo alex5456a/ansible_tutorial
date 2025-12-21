@@ -1,0 +1,13 @@
+---
+- name: demonstrate loop
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: show some looping
+      debug:
+        msg: "{{ item }}"
+      loop:
+        - one
+        - two
+        - three
+        - four
